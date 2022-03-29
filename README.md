@@ -7,3 +7,5 @@ If you want to learn LaTeX, here are some sources I would strongly suggest:
 
 1. [The Not So Short Introduction to LaTeX2ε](https://tobi.oetiker.ch/lshort/lshort.pdf), it is also available in other languages [here](https://ctan.org/tex-archive/info/lshort/english/?lang=en)
 2. [Stackoverflow-LaTeX's version](https://tex.stackexchange.com/)
+3. [LaTeX Wikibooks](https://en.wikibooks.org/wiki/LaTeX)
+4. [Overleaf LaTeX's Tutorial](https://www.overleaf.com/learn/latex/Tutorials)
