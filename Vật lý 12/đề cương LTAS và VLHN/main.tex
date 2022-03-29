@@ -3,9 +3,9 @@
 \date{\today}
 \author{Tạ Chí Thành Danh}
 \usepackage[utf8]{vietnam} % Unicode tiếng Việt
-\usepackage{amsmath}
+\usepackage{amsmath} % \boldsymbol{symbol}
 \usepackage{amsfonts}
-\usepackage{amssymb}
+\usepackage{amssymb} % \geqslant and \leqslant
 \usepackage{graphicx} % Dùng để chèn hình
 \usepackage{textcomp}
 \usepackage{hyperref}
@@ -15,10 +15,10 @@
 \usepackage[left=1cm,right=1cm,top=1.6cm,bottom=1cm]{geometry} % Định dạng khoảng cách lề giấy
 \usepackage[fontsize=13pt]{scrextend} % Chỉnh cỡ chữ thành 13 như mặc định bên Word
 \usepackage{tabularx} % Thư viện cho phép chèn itemize trong table
-\usepackage{changepage} % for adjustwidth
+\usepackage{changepage} % for adjustwidth, usage here: https://tex.stackexchange.com/questions/213208/specially-indent-tabular-environment-to-the-left
 \usepackage{setspace} % Linespacing
 \usepackage{array} % for using {m|1cm|}
-\usepackage{upgreek} % \uplambda
+\usepackage{upgreek} % \uplambda \upalpha \upbeta
 \usepackage{mathtools} % for prescript: https://www.overleaf.com/learn/latex/Articles/Mathtools_-_for_beautiful_math
 %\usepackage{newtxtext,newtxmath} % Muốn dùng Times New Roman thì nhét cái này
 \usepackage{fancyhdr} % dùng để tùy biến header theo ý mình
@@ -29,6 +29,7 @@
 \chead{Biên soạn bằng \LaTeXe}
 \rhead{\thepage}
 \setlength{\columnseprule}{0.4pt} % Tạo một đường thẳng đứng ở giữa các cột
+% https://tex.stackexchange.com/questions/23887/how-to-show-the-vertical-line-between-two-columns
 \newenvironment{myitemize} 
 { \begin{itemize}[leftmargin=*,label=-]  % https://www.overleaf.com/learn/latex/Environments
 		% https://tex.stackexchange.com/questions/13463/specifying-bullet-type-when-using-itemize
@@ -57,6 +58,7 @@
 %	\text{\ooalign{\hidewidth\raisebox{0.2ex}{--}\hidewidth\cr$Z$\cr}}%
 %}
 
+% Tra ký hiệu ở: http://detexify.kirelabs.org/classify.html
 \begin{document}
 	%\maketitle
 Lớp: 12A7 \quad Họ tên: Tạ Chí Thành Danh \\
@@ -73,6 +75,7 @@ Lớp: 12A7 \quad Họ tên: Tạ Chí Thành Danh \\
 	Trong đó $A$ là \textbf{công thoát}, $\lambda_0$ là \textbf{giới hạn quang điện} với $\lambda_0 = \dfrac{hc}{A}$ \\
 	Các công thức quang điện: 
 	\begin{myitemize}
+	% Ghi hoa ký tự toán học: https://tex.stackexchange.com/a/341373
 	\item[$\boldsymbol{\cdot}$ ]Cường độ dòng quang điện $I = n_e \cdot e$ \\ ($n_e$: $\mathrm{electrons}/s$)
 	\item[$\boldsymbol{\cdot}$ ] Công suất chiếu sáng $P=n_p.$\textepsilon{} $=n_p.hf = n_p \cdot \dfrac{hc}{\lambda}$ ( $n_e$: $\mathrm{photons}/s$)
 	\item[$\boldsymbol{\cdot}$ ] Hiệu suất quang điện $H = \dfrac{n_e}{n_p}$
@@ -84,21 +87,24 @@ Lớp: 12A7 \quad Họ tên: Tạ Chí Thành Danh \\
 	\end{myitemize}
 	\begin{adjustwidth}{-1cm}{}
 	\renewcommand{\arraystretch}{0} 
+	% https://www.overleaf.com/learn/latex/Questions/How_do_I_change_column_or_row_separation_in_LaTeX_tables%3F
 	% Default value: 1, chỉnh xuống 0 để khoảng cách giữa các đường ngang với các dòng văn bản ngắn hơn
 	\begin{tabular}{|p{4.3cm}|p{4.3cm}|}
+		% Use |p{width}| instead of |l| or |r|, source: https://stackoverflow.com/a/790944
+		% Further reading: https://www.overleaf.com/learn/latex/Tables#Reference_guide
 		\hline
 		Quang điện ngoài & Quang điện trong \\
 		\hline
 		\begin{myitemize}
 			\item Xảy ra với \textbf{kim loại}
-			\item ánh sáng thích hợp làm bật $e$ ra khỏi tấm \textbf{kim loại} 
+			\item Ánh sáng thích hợp làm bật $e$ ra khỏi tấm \textbf{kim loại} 
 			\item $\lambda_0$ nằm trong vùng \textbf{tử ngoại} 
 			(riêng kim loại kiềm thì nằm vùng ánh sáng \textbf{nhìn thấy})
 			\end{myitemize}
 			&
 			\begin{myitemize}
 				\item Xảy ra với \textbf{chất bán dẫn}
-				\item ánh sáng thích hợp giải phóng $e$ khỏi liên kết cộng hóa trị nhưng 
+				\item Ánh sáng thích hợp giải phóng $e$ khỏi liên kết cộng hóa trị nhưng 
 				$e$ vẫn nằm trong khối \textbf{chất bán dẫn}
 				\item $\lambda_0$ nằm trong vùng \textbf{hồng ngoại}
 			\end{myitemize}
@@ -138,8 +144,9 @@ Lớp: 12A7 \quad Họ tên: Tạ Chí Thành Danh \\
 	\begin{myitemize}
 		\item Tiên đề về bức xạ và hấp thụ năng lượng:
 		\includegraphics[scale=0.2]{image.png}
+		% Rescale the image in PDF file: https://tex.stackexchange.com/questions/64836/change-image-size
 	\end{myitemize}
-	\textepsilon{} $=hf=\dfrac{hc}{\lambda}=E_{n cao} - E_{m thấp}$ \\
+	\textepsilon{} $=hf=\dfrac{hc}{\lambda}=E_{n} - E_{m}$ \\
 	số vạch max $=\dfrac{n(n-1)}{2}$ \\
 	$F = \dfrac{ke^2}{r^2} = ma_{ht} = \dfrac{mv^2}{r}$ \\
 	Tia X: $\dfrac{hc}{\lambda_{min}} = hf_{max} = eU_{AK} = W_{\textit{đ}A}$
@@ -163,6 +170,7 @@ Lớp: 12A7 \quad Họ tên: Tạ Chí Thành Danh \\
 \begin{adjustwidth}{-0.2cm}{}
 	\begin{center}
 		\small\textbf{ÔN TẬP CHƯƠNG VẬT LÝ HẠT NHÂN}
+		% https://www.overleaf.com/learn/latex/Font_sizes%2C_families%2C_and_styles#Reference_guide
 	\end{center}
 \end{adjustwidth}
 \begin{myenumerate}
@@ -191,6 +199,8 @@ Lớp: 12A7 \quad Họ tên: Tạ Chí Thành Danh \\
 	\begin{myitemize}
 		\item Tia $\upalpha$: bản chất là hạt nhân $^4_2He$
 		\item Tia $\upbeta$: $\upbeta^{+}$ là \textit{positron} $\prescript{0}{+1}{e}$, $\upbeta^{-}$ là \\ \textit{electron} $\prescript{0}{-1}{e}$
+		% Cách dùng prescript: https://www.overleaf.com/learn/latex/Articles/Mathtools_-_for_beautiful_math
+		% Đọc thêm ở đây: https://latex.org/forum/viewtopic.php?t=21187
 		\item Tia $\upgamma$: bản chất là \textbf{sóng điện từ} với bước sóng rất ngắn, khả năng đâm \textbf{rất lớn} so với $\upalpha$, $\upbeta$. (Tia $\upgamma$ \textbf{đi kèm} với phát xạ $\upalpha$, $\upbeta$)
 	\end{myitemize}
 	\textit{Lưu ý: Tia $\mathit{\alpha,\beta}$ \textbf{lệch} trong điện trường và từ trường, còn tia $\mathit{\gamma}$ thì \textbf{không lệch}}
