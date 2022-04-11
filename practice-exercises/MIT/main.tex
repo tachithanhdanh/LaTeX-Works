@@ -18,15 +18,22 @@
 \newcommand{\f}[2]{\dfrac{#1}{#2}}
 \newcommand{\ud}{\,\mathrm{d}}
 % https://tex.stackexchange.com/questions/117358/newcommand-argument-confusion
-%\newcommand{\mathset}[2][]{ % https://stackoverflow.com/questions/2144176/latex-newcommand-default-argument-is-empty
-%	\ifthenelse{\isempty{#1}}%
-%	\left\{\begin{array}{c} % if #1 is empty
-%		#2
-%	\end{array}\right\}
-%	\left\{\begin{array}{c|c} % if #1 is not empty
-%		#1 & #2
-%	\end{array}\right\}
-%}
+\newcommand{\mathset}[2][]{ % https://stackoverflow.com/questions/2144176/latex-newcommand-default-argument-is-empty
+	% https://tex.stackexchange.com/questions/1232/difference-between-big-and-bigl
+	% https://tex.stackexchange.com/questions/2607/spacing-around-left-and-right
+	% https://tex.stackexchange.com/questions/1454/what-is-the-correct-way-to-do-delimiters
+	\ifthenelse{\isempty{#1}}%
+	{
+	\mathopen{}\left\{\begin{array}{c} % if #1 is empty
+		#2
+	\end{array}\right\}\mathclose{}
+	}
+	{
+	\mathopen{}\left\{\begin{array}{c V{1.25} c} % if #1 is not empty
+		#1 & #2
+	\end{array}\right\}\mathclose{}
+	}
+}
 \begin{document}
 	\maketitle
 	\begin{abstract}
@@ -162,7 +169,7 @@
 	Chú ý vào các phần cụ thể particular, kích cỡ của thanh giữa, kích cỡ của ngoặc nhọn, khoảng cách giữa thanh giữa và các đối tượng xung quanh. \\
 	\textbf{Phần này quá khó nên tôi đã quyết định dừng tại đây.}
 	%\begin{equation}
-	%	\mathset[1]{1}
+	%	\mathset{1}
 	%\end{equation}
 	\section{Insane}
 	\section{Diabolical}
