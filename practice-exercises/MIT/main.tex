@@ -53,8 +53,8 @@
 		| \langle x, y \rangle | ^2 \leq \langle x, x \rangle \cdot \langle y, y \rangle %\\ \nonumber \\
 	\end{gather}
 	\begin{align}
-	& \mathrm{A}1: \varphi \longrightarrow (\psi \rightarrow \varphi) \nonumber \\
-	& \mathrm{A}2: (\varphi \rightarrow (\psi \rightarrow \theta)) \longrightarrow ((\varphi \rightarrow \psi) \rightarrow (\varphi \rightarrow \theta)) \nonumber \\
+	& \mathrm{A}1: \varphi \longrightarrow (\psi \rightarrow \varphi) \nonumber \\[-2ex]
+	& \mathrm{A}2: (\varphi \rightarrow (\psi \rightarrow \theta)) \longrightarrow ((\varphi \rightarrow \psi) \rightarrow (\varphi \rightarrow \theta)) \nonumber \\[-2ex]
 	& \mathrm{A}3: (\neg \varphi \rightarrow \neg \psi) \longrightarrow (\psi \rightarrow \varphi) 
 	\end{align}
 	\openup -2ex
@@ -66,11 +66,15 @@
 			1 & \text{if } x \in A \\
 			0 & \text{if } x \notin A
 		\end{cases} \\	
-		n \underbrace{\uparrow \cdots \uparrow}_n = n \rightarrow n \rightarrow n \\
-		1 \uparrow 1 = {^1}1 = 1 \nonumber \\
-		2 \uparrow \uparrow 2 = {^2}2 = 4 \nonumber \\
+		n \underbrace{\uparrow \cdots \uparrow}_n = n \rightarrow n \rightarrow n
+	\end{gather}
+	\begin{align}
+		1 \uparrow 1 = {^1}1 &= 1 \nonumber \\
+		2 \uparrow \uparrow 2 = {^2}2 &= 4 \nonumber \\
 		3 \uparrow \uparrow \uparrow 3 = {^{^{^3}3}}3 % this is so freaking hard
-		= 3 \uparrow \uparrow 3 \uparrow \uparrow 3 = \underbrace{3^{3^{3^{3^{3^{3^{.^{.^{.^{3}}}}}}}}}}_{3^{3^3} \text{threes}} \\
+		&= 3 \uparrow \uparrow 3 \uparrow \uparrow 3 = \underbrace{3^{3^{3^{3^{3^{3^{.^{.^{.^{3}}}}}}}}}}_{3^{3^3} \text{threes}}
+	\end{align}
+	\begin{gather}
 		\f{\mathrm{d}}{\mathrm{d} x} f(x) = \lim_{\Delta x \to 0} \f{f(x+\Delta x) - f(x)}{\Delta x} \\
 		\mathrm{H_2O}(\ell) + \mathrm{H_2O}(\ell) \rightleftharpoons \mathrm{H_3O^+} (aq) + \mathrm{OH^-} (aq) \\
 		\Gamma (n+1) \stackrel{\mathclap{\tiny\mbox{def}}}{=} \int_0^{\infty} e^{-t}t^n \mathrm{d} t \\
@@ -82,7 +86,7 @@
 		\nabla \cdot \mathbf{B} &= 0 \nonumber \\
 		\nabla \times \mathbf{E} &= -\f{\partial \mathbf{B}}{\partial t} \nonumber \\
 		\nabla \cdot \mathbf{B} &= \mu_0 \mathbf{J} + \mu_0 \varepsilon_0 \f{\partial \mathbf{E}}{\partial t} \\
-		\oiint_{\partial V} \mathbf{E} \cdot \mathrm{d} \mathbf{A} &= 0 \nonumber \\
+		\oiint_{\partial V} \mathbf{E} \cdot \mathrm{d} \mathbf{A} &= \f{Q(V)}{\varepsilon_0} \nonumber \\
 		\oiint_{\partial V} \mathbf{B} \cdot \mathrm{d} \mathbf{A}  &= 0 \nonumber \\
 		\oint_{\partial S} \mathbf{E} \cdot \mathrm{d} \mathbf{l} &= -\f{\partial \Phi_{B,S}}{\partial t} \nonumber \\
 		\oint_{\partial S} \mathbf{B} \cdot \mathrm{d} \mathbf{l} &= \mu_0 I_S + \mu_0 \varepsilon_0 \f{\partial \Phi_{E,S}}{\partial t}
