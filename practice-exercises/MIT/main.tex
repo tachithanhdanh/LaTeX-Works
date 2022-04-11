@@ -1,0 +1,165 @@
+\documentclass[a4paper,12pt,notitlepage]{article}
+\title{Bài tập thực hành \LaTeX}
+\author{Tạ Chí Thành Danh}
+\date{\TeX ed vào ngày 10 và 11 tháng 4 năm 2022}
+\usepackage[utf8]{vietnam} % Unicode tiếng Việt
+\usepackage{amsmath}
+\usepackage{amssymb} % \rightleftharpoons
+\usepackage{mathtools} % \stackrel
+\usepackage{esint} % \oiint
+\usepackage{boldline} % make hline thicker
+\usepackage{setspace}
+\usepackage{lipsum}
+\usepackage{xifthen}% provides \isempty test
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry} % Định dạng khoảng cách lề giấy
+\usepackage{hyperref}
+\hypersetup{colorlinks, urlcolor=blue}
+%\renewcommand{\baselinestretch}{0.5} 
+\newcommand{\f}[2]{\dfrac{#1}{#2}}
+\newcommand{\ud}{\,\mathrm{d}}
+% https://tex.stackexchange.com/questions/117358/newcommand-argument-confusion
+%\newcommand{\mathset}[2][]{ % https://stackoverflow.com/questions/2144176/latex-newcommand-default-argument-is-empty
+%	\ifthenelse{\isempty{#1}}%
+%	\left\{\begin{array}{c} % if #1 is empty
+%		#2
+%	\end{array}\right\}
+%	\left\{\begin{array}{c|c} % if #1 is not empty
+%		#1 & #2
+%	\end{array}\right\}
+%}
+\begin{document}
+	\maketitle
+	\begin{abstract}
+		Đây là phần luyện tập của tôi nhằm củng cố thêm kỹ năng viết các công thức, phương trình toán học bằng \LaTeXe.
+		Dành cho những ai cũng muốn luyện tập thì đây là \href{https://web.mit.edu/~jgross/Public/latex/exercises.pdf}{đường dẫn tới file bài tập}.
+	\end{abstract}
+	\section{Dễ}
+	\begin{equation}
+		\text{Please type me! The quick brown fox jumps over the lazy dog.}
+	\end{equation}
+	% https://tex.stackexchange.com/questions/2929/how-to-increase-the-spacing-between-equations-in-gather
+	% https://tex.stackexchange.com/questions/277234/gather-vs-aligned-centered-equation-with-one-number
+	% https://www.overleaf.com/learn/latex/Aligning_equations_with_amsmath
+	\openup 2ex
+	\begin{gather}
+		e^{i \pi} + 1 = 0 \\
+		e^{i \theta} = \cos \theta + i \sin \theta \\
+		G_{\mu \nu} + \Lambda g_{\mu \nu} = \f{8\pi G}{c^4} T_{\mu \nu} \\
+		x = \f{-b \pm \sqrt{b^2 - 4ac}}{2a} \\
+		\vec{L} = \vec{r} \times \vec{p} \\
+		\sqrt[3]{2} \\
+		(x + y)^n = \sum_{r=0}^{n} \binom{n}{r} x^r y^{n-r} \\
+		\sqrt{\f{a_1^2 + \cdots + a_n^2}{n}} \geq \f{a_1 + \cdots + a_n}{n} \geq \sqrt[n]{a_1 \cdots a_n} \geq \f{n}{\tfrac{1}{a_1} + \cdots + \tfrac{1}{a_n}} \\
+		| \langle x, y \rangle | ^2 \leq \langle x, x \rangle \cdot \langle y, y \rangle %\\ \nonumber \\
+	\end{gather}
+	\begin{align}
+	& \mathrm{A}1: \varphi \longrightarrow (\psi \rightarrow \varphi) \nonumber \\
+	& \mathrm{A}2: (\varphi \rightarrow (\psi \rightarrow \theta)) \longrightarrow ((\varphi \rightarrow \psi) \rightarrow (\varphi \rightarrow \theta)) \nonumber \\
+	& \mathrm{A}3: (\neg \varphi \rightarrow \neg \psi) \longrightarrow (\psi \rightarrow \varphi) 
+	\end{align}
+	\openup -2ex
+	\section{Trung bình}
+	\openup 2ex
+	\begin{gather}
+		1_A = 
+		\begin{cases}
+			1 & \text{if } x \in A \\
+			0 & \text{if } x \notin A
+		\end{cases} \\	
+		n \underbrace{\uparrow \cdots \uparrow}_n = n \rightarrow n \rightarrow n \\
+		1 \uparrow 1 = {^1}1 = 1 \nonumber \\
+		2 \uparrow \uparrow 2 = {^2}2 = 4 \nonumber \\
+		3 \uparrow \uparrow \uparrow 3 = {^{^{^3}3}}3 % this is so freaking hard
+		= 3 \uparrow \uparrow 3 \uparrow \uparrow 3 = \underbrace{3^{3^{3^{3^{3^{3^{.^{.^{.^{3}}}}}}}}}}_{3^{3^3} \text{threes}} \\
+		\f{\mathrm{d}}{\mathrm{d} x} f(x) = \lim_{\Delta x \to 0} \f{f(x+\Delta x) - f(x)}{\Delta x} \\
+		\mathrm{H_2O}(\ell) + \mathrm{H_2O}(\ell) \rightleftharpoons \mathrm{H_3O^+} (aq) + \mathrm{OH^-} (aq) \\
+		\Gamma (n+1) \stackrel{\mathclap{\tiny\mbox{def}}}{=} \int_0^{\infty} e^{-t}t^n \mathrm{d} t \\
+		% https://tex.stackexchange.com/questions/74125/how-do-i-put-text-over-symbols
+		\gcd(n,m \bmod n); \quad x \equiv y \pmod{b}; \quad x \equiv y \pmod{c}; \quad x \equiv y \quad (d)
+	\end{gather}
+	\begin{align}
+		\nabla \cdot \mathbf{E} &= \f{\rho}{\varepsilon_0} \nonumber \\
+		\nabla \cdot \mathbf{B} &= 0 \nonumber \\
+		\nabla \times \mathbf{E} &= -\f{\partial \mathbf{B}}{\partial t} \nonumber \\
+		\nabla \cdot \mathbf{B} &= \mu_0 \mathbf{J} + \mu_0 \varepsilon_0 \f{\partial \mathbf{E}}{\partial t} \\
+		\oiint_{\partial V} \mathbf{E} \cdot \mathrm{d} \mathbf{A} &= 0 \nonumber \\
+		\oiint_{\partial V} \mathbf{B} \cdot \mathrm{d} \mathbf{A}  &= 0 \nonumber \\
+		\oint_{\partial S} \mathbf{E} \cdot \mathrm{d} \mathbf{l} &= -\f{\partial \Phi_{B,S}}{\partial t} \nonumber \\
+		\oint_{\partial S} \mathbf{B} \cdot \mathrm{d} \mathbf{l} &= \mu_0 I_S + \mu_0 \varepsilon_0 \f{\partial \Phi_{E,S}}{\partial t}
+	\end{align}
+	\newline
+	\begin{gather}
+		\rho_\theta
+		% https://latex-programming.fandom.com/wiki/Matrix_(LaTeX_environment)
+		=
+		\begin{pmatrix}
+			\cos \theta & \sin \theta \\
+			-\sin \theta & \cos \theta 
+		\end{pmatrix}
+		=
+		\begin{bmatrix}
+			\cos \theta & \sin \theta \\
+			-\sin \theta & \cos \theta 
+		\end{bmatrix} \\ 	
+		% https://latex-programming.fandom.com/wiki/Array_(LaTeX_environment)
+		% https://tex.stackexchange.com/questions/243522/making-thick-horizontal-lines-and-a-thick-vertical-line-in-a-table
+		\left[ \begin{array}{c V{1.25} c c c}
+			1 & 0 & \cdots & 0 \\
+			\hlineB{1.25}
+			0 & \ast & \cdots & \ast \\
+			\vdots & \vdots & \ddots & \vdots \\
+			0 & \ast & \cdots & \ast
+		\end{array} \right]
+		= 
+		\begin{array}{V{1.25} c V{1.25} c c c V{1.25}}
+			\hlineB{1.25}
+			1 & 0 & \cdots & 0 \\
+			\hlineB{1.25}
+			0 & \ast & \cdots & \ast \\
+			\vdots & \vdots & \ddots & \vdots \\
+			0 & \ast & \cdots & \ast \\
+			\hline
+		\end{array} \\
+		\sigma = \sqrt{\f{1}{N} \sum_{i=1}^{N} p_i(x_i-\bar{x})^2} = \sqrt{\f{\displaystyle{\sum_{i=1}^{N} p_i(x_i-\bar{x})^2}}{N}} \\
+		% https://www.tutorialspoint.com/tex_commands/atop.htm
+		\varphi(n) = n \cdot \prod_{p|n \atop p \text{ prime}} \left( 1 - \f{1}{p} \right)	
+	\end{gather}
+	Nếu bạn sử dụng \verb+\usepackage{mathtools}+, bạn có thể biến nó thành
+	\begin{gather}
+		% https://tex.stackexchange.com/questions/153490/atop-vs-substack-for-multiple-lines-under-a-sum
+		\varphi(n) = n \cdot \prod_{\substack{p|n \\ p \text{ prime}}} \left( 1 - \f{1}{p} \right) \\
+		^4_{12}\mathrm{C}^{5+}_2 \quad 
+		^{14}_{\phantom{1}2}\mathrm{C}^{5+}_2 \quad 
+		^{\phantom{1}4}_{12}\mathrm{C}^{5+}_2 \quad 
+		^{14}\mathrm{C}^{5+}_2 \quad
+		_{2}\mathrm{C}^{5+}_2 \\
+		\mathbb{Q} \stackrel{\sim}{=} \left\{ \f{a}{b} \Big| a, b \in \mathbb{Z} \text{ and } b \neq 0 \right\} \Big/ \sim \nonumber \\
+		\f{a}{b} \sim \f{c}{d} \Longleftrightarrow ad - bc = 0
+	\end{gather}
+	\begin{align}
+		% https://tex.stackexchange.com/questions/424200/what-does-smash-do-and-where-is-it-documented
+		% Nén chữ
+		1 \uparrow 1 = {^1}1 &= 1 \nonumber \\[-2ex]
+		2 \uparrow \uparrow 2 = {^2}2 &= 4 \nonumber \\[-2ex]
+		3 \uparrow \uparrow \uparrow 3 = \smash{{^{^{^3}3}}3} % this is so freaking hard
+		&= 3 \uparrow \uparrow 3 \uparrow \uparrow 3 = \underbrace{\smash{3^{3^{3^{3^{3^{3^{.^{.^{.^{3}}}}}}}}}}}_{3^{3^3} \text{threes}}
+		% https://pandaqitutorials.com/Writing/latex-spacing
+		% Xem ở cuối bài
+	\end{align}
+	\newpage
+	\openup -2ex
+	\section{Khó}
+	%\setstretch{1.0}
+	Lệnh \verb+\newcommand{\+\textit{tên lệnh}\verb+}[+\textit{n}\verb+][+\textit{mặc định}\verb+]{+\textit{định nghĩa}\verb+}+ định nghĩa một câu lệnh, với $n$ là
+	số tham số và \textit{mặc định} là giá trị mặc định cho tham số đầu tiên.
+	Tham số trong ngoặc nhọn \mbox{(\{ {} \})} là bắt buộc, và tham số trong ngoặc vuông ([\phantom{a}]) là tùy ý. 
+	Tham số có thể được tham chiếu thông qua \verb|#1|, \verb|#2|, \ldots , \verb|#9|. 
+	Sử dụng \verb+\newcommand{\mathset}[2][+\textit{giá trị mặc định cho tham số thứ nhất}\verb+]{+\textit{định nghĩa câu lệnh}\verb+}+, định nghĩa câu lệnh \verb+\mathset+ hiển thị như ở dưới đây. 
+	Chú ý vào các phần cụ thể particular, kích cỡ của thanh giữa, kích cỡ của ngoặc nhọn, khoảng cách giữa thanh giữa và các đối tượng xung quanh. \\
+	\textbf{Phần này quá khó nên tôi đã quyết định dừng tại đây.}
+	%\begin{equation}
+	%	\mathset[1]{1}
+	%\end{equation}
+	\section{Insane}
+	\section{Diabolical}
+\end{document}
