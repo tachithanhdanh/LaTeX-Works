@@ -9,3 +9,5 @@ If you want to learn LaTeX, here are some sources I would strongly suggest:
 2. [Stackoverflow-LaTeX's version](https://tex.stackexchange.com/)
 3. [LaTeX Wikibooks](https://en.wikibooks.org/wiki/LaTeX)
 4. [Overleaf LaTeX's Tutorial](https://www.overleaf.com/learn/latex/Tutorials)
+5. [Detexify - A place to look up symbols](http://detexify.kirelabs.org/classify.html)
+6. [Evan Chen LaTeX FAQ's](https://web.evanchen.cc/faq-latex.html)
