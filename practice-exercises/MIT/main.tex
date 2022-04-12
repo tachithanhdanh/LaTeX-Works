@@ -1,7 +1,7 @@
 \documentclass[a4paper,12pt,notitlepage]{article}
 \title{Bài tập thực hành \LaTeX}
 \author{Tạ Chí Thành Danh}
-\date{\TeX ed vào ngày 10 và 11 tháng 4 năm 2022}
+\date{\TeX ed vào ngày 10, 11 và 12 tháng 4 năm 2022}
 \usepackage[utf8]{vietnam} % Unicode tiếng Việt
 \usepackage{amsmath}
 \usepackage{amssymb} % \rightleftharpoons
@@ -11,6 +11,9 @@
 \usepackage{setspace}
 \usepackage{lipsum}
 \usepackage{xifthen}% provides \isempty test
+%\usepackage{cancel} % cancel for striking through text
+%\usepackage{soul} % \st strikethrough text
+\usepackage[normalem]{ulem} % \sout
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry} % Định dạng khoảng cách lề giấy
 \usepackage{hyperref}
 \hypersetup{colorlinks, urlcolor=blue}
@@ -22,16 +25,25 @@
 	% https://tex.stackexchange.com/questions/1232/difference-between-big-and-bigl
 	% https://tex.stackexchange.com/questions/2607/spacing-around-left-and-right
 	% https://tex.stackexchange.com/questions/1454/what-is-the-correct-way-to-do-delimiters
-	\ifthenelse{\isempty{#1}}%
+	% https://tex.stackexchange.com/questions/9091/what-is-the-right-way-to-use-the-spacing-command
+	% https://tex.stackexchange.com/questions/41476/lengths-and-when-to-use-them/41484#41484
+	% Negative space
+	\ifthenelse{\isempty{#2}}
 	{
-	\mathopen{}\left\{\begin{array}{c} % if #1 is empty
-		#2
-	\end{array}\right\}\mathclose{}
+		\emptyset
 	}
 	{
-	\mathopen{}\left\{\begin{array}{c V{1.25} c} % if #1 is not empty
+	\ifthenelse{\isempty{#1}}%
+	{
+	\left\{\!\!\!\begin{array}{c} % if #1 is empty
+		#2
+	\end{array}\!\!\!\right\}
+	}
+	{
+	\left\{\!\!\!\begin{array}{c V{1.1} c} % if #1 is not empty
 		#1 & #2
-	\end{array}\right\}\mathclose{}
+	\end{array}\!\!\!\right\}
+	}
 	}
 }
 \begin{document}
@@ -167,10 +179,34 @@
 	Tham số có thể được tham chiếu thông qua \verb|#1|, \verb|#2|, \ldots , \verb|#9|. 
 	Sử dụng \verb+\newcommand{\mathset}[2][+\textit{giá trị mặc định cho tham số thứ nhất}\verb+]{+\textit{định nghĩa câu lệnh}\verb+}+, định nghĩa câu lệnh \verb+\mathset+ hiển thị như ở dưới đây. 
 	Chú ý vào các phần cụ thể particular, kích cỡ của thanh giữa, kích cỡ của ngoặc nhọn, khoảng cách giữa thanh giữa và các đối tượng xung quanh. \\
-	\textbf{Phần này quá khó nên tôi đã quyết định dừng tại đây.}
-	%\begin{equation}
-	%	\mathset{1}
-	%\end{equation}
+	% https://tex.stackexchange.com/questions/23711/strikethrough-text
+	\sout{\textbf{Phần này quá khó nên tôi đã quyết định dừng tại đây.}} \\
+	\textbf{Update ngày 12/04/2022: Tôi đã tìm được cách giải cho phần này.} \\
+	\begin{tabular}{ll}
+		\verb|\mathset{1}| & 
+		gives $\mathset{1}$ \\
+		\verb|\mathset[x]{0\leq x\leq 1}| & 
+		gives $\mathset[x]{0 \leq x\leq 1}$ \\
+		\verb|\mathset[(x)_i]{|$\displaystyle{\sum_{i} x_i \in A}$\verb|}| & 
+		gives $\mathset[(x)_i]{\displaystyle{\sum_{i} x_i \in A}}$ \\
+		\verb|\mathset[|$\displaystyle{\sum_{i=1}^{\infty} n^{-s}}$\verb|]{| $n \in A$ \verb|}| & 
+		gives $\mathset[\displaystyle{\sum_{i=1}^{\infty} n^{-s}}]{n \in A}$ \\
+		\verb|\mathset{}| & gives $\mathset{}$ \\
+		% Warning: eye-raping part
+		\verb|\mathset[|$\frac{1}{1+\frac{1}{x}}$\verb|]{x \in A}| & 
+		gives $\mathset[\frac{1}{1+\frac{1}{x}}]{x \in A}$ \\
+		\verb|\mathset[|$\frac{1}{1+\frac{1}{1+\frac{1}{x}}}$\verb|]{x \in A}| & 
+		gives $\mathset[\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{x}}}}]{x \in A}$ \\
+		\verb|\mathset[|$\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{x}}}}$\verb|]{x \in A}| & 
+		gives $\mathset[\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{x}}}}]{x \in A}$ \\
+		\verb|\mathset[|$\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{x}}}}}$\verb|]{x \in A}| & 
+		gives $\mathset[\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{x}}}}}]{x \in A}$ \\
+		\verb|\mathset[|$\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{x}}}}}}$\verb|]{x \in A}| & 
+		gives $\mathset[\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{x}}}}}}]{x \in A}$ \\
+		\verb|\mathset[|$\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{x}}}}}}}$\verb|]{x \in A}| & 
+		gives $\mathset[\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{x}}}}}}}]{x \in A}$ \\
+	\end{tabular} \\
+	For the 5 last commands, this is the best I can do.
 	\section{Insane}
 	\section{Diabolical}
 \end{document}
