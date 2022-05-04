@@ -1,4 +1,4 @@
-\documentclass[a4paper,12pt,notitlepage]{article}
+\documentclass[a4paper,notitlepage]{article}
 \title{Xin chào thế giới!}
 \author{Tạ Chí Thành Danh}
 \date{\today}
@@ -19,13 +19,15 @@
 	\begin{align} 
 		% https://latex-programming.fandom.com/wiki/Align_(LaTeX_environment)
 		% https://support.authorea.com/en-us/article/how-do-i-reference-my-latex-tables-or-equations-brkb5m/#:~:text=To%20reference%20a%20LaTeX%20table,a%20eqn%3A%20prefix%20for%20equations.&text=Notice%20the%20%5Clabel%7Btab%3A,somelabel%7D%20inside%20the%20%5Ccaption%20.&text=Notice%20the%20%5Clabel%7Beqn%3Asomelabel%7D.
-		\vec\nabla \cdot \vec E &= \dfrac{\rho}{\epsilon_0} && \text{Định luật Gauss} \label{eqn:2} \\
-		\vec\nabla \cdot \vec B &= 0 && \text{Định luật Gauss về Từ trường} \label{eqn:3} \\
-		\vec\nabla \cdot \vec E &= -\dfrac{\partial \vec B}{\partial t} && \text{Định luật Faraday về cảm ứng điện từ} \label{eqn:4} \\
-		\vec\nabla \cdot \vec B &= \mu_0 \left(\epsilon_0 \dfrac{\partial \vec E}{\partial t} + \vec J\right) && \text{Định luật Ampère về dòng điện toàn phần} \label{eqn:5}
+		% https://tex.stackexchange.com/questions/74353/what-commands-are-there-for-horizontal-spacing 
+		% Different spacing characters in LaTeX
+		\vec\nabla \cdot \vec E \enspace &= \enspace \dfrac{\rho}{\epsilon_0} && \text{Định luật Gauss} \label{eqn:2} \\
+		\vec\nabla \cdot \vec B \enspace &= \enspace 0 && \text{Định luật Gauss về Từ trường} \label{eqn:3} \\
+		\vec\nabla \times \vec E \enspace &= \enspace -\dfrac{\partial \vec B}{\partial t} && \text{Định luật Faraday về cảm ứng điện từ} \label{eqn:4} \\
+		\vec\nabla \times \vec B \enspace &= \enspace \mu_0 \left(\epsilon_0 \dfrac{\partial \vec E}{\partial t} + \vec J\right) && \text{Định luật Ampère về dòng điện toàn phần} \label{eqn:5}
 	\end{align}
-	Các phương trình \ref{eqn:2}, \ref{eqn:3}, \ref{eqn:4}, và \ref{eqn:5} là một trong các phương trình quan trọng nhất trong Vật lý.
-	\section{vậy còn Phương trình Ma trận thì sao?}
+	%Các phương trình \ref{eqn:2}, \ref{eqn:3}, \ref{eqn:4}, và \ref{eqn:5} là một trong các phương trình quan trọng nhất trong Vật lý.
+	\section{Vậy còn Phương trình Ma trận thì sao?}
 	% https://latex-programming.fandom.com/wiki/Matrix_(LaTeX_environment)
 	% https://latex-programming.fandom.com/wiki/Array_(LaTeX_environment)
 	\begin{gather*}
@@ -43,6 +45,7 @@
 		w_1 \\ w_2 \\ \vdots \\ w_n
 	\end{array}
 	\end{gather*}
+	\newpage
 	\section{Bảng biểu và Hình ảnh}
 	\begin{table}[h] 
 		% https://tex.stackexchange.com/questions/8652/what-does-t-and-ht-mean
