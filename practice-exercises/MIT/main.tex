@@ -1,7 +1,7 @@
 \documentclass[a4paper,12pt,notitlepage]{article}
 \title{Bài tập thực hành \LaTeX}
 \author{Tạ Chí Thành Danh}
-\date{\TeX ed vào ngày 10, 11 và 12 tháng 4 năm 2022}
+\date{\TeX ed vào ngày 10, 11 và 12 tháng 4 năm 2022 \\ Sửa lần cuối vào ngày 5 tháng 5 năm 2022}
 \usepackage[utf8]{vietnam} % Unicode tiếng Việt
 \usepackage{amsmath}
 \usepackage{amssymb} % \rightleftharpoons
@@ -16,6 +16,9 @@
 \usepackage[normalem]{ulem} % \sout
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry} % Định dạng khoảng cách lề giấy
 \usepackage{hyperref}
+%\usepackage{commath}  https://www.ctan.org/tex-archive/macros/latex/contrib/commath, trong đây có lệnh \set (muốn ăn gian thì dùng)
+% https://tex.stackexchange.com/a/15902 (Evaluation of Differentiation and Integration)
+% https://tex.stackexchange.com/a/14822 (What's the proper way to typeset a differential operator?)
 \hypersetup{colorlinks, urlcolor=blue}
 %\renewcommand{\baselinestretch}{0.5} 
 \newcommand{\f}[2]{\dfrac{#1}{#2}}
@@ -33,16 +36,23 @@
 		\emptyset
 	}
 	{
-	\ifthenelse{\isempty{#1}}%
+	\ifthenelse{\isempty{#1}} % if #1 is empty
 	{
-	\left\{\!\!\!\begin{array}{c} % if #1 is empty
+	\left\{
+	%\!\!\!\begin{array}{c}
+		%\set{#2}
 		#2
-	\end{array}\!\!\!\right\}
+	%\end{array}\!\!\!
+	\right\}
 	}
-	{
-	\left\{\!\!\!\begin{array}{c V{1.1} c} % if #1 is not empty
-		#1 & #2
-	\end{array}\!\!\!\right\}
+	{ % if #1 is not empty
+	\left\{
+	%\!\!\!\begin{array}{c V{1.1} c} 
+		%\set{#1\,\middle|\,#2 }
+		#1\,\middle|\,#2
+		% https://tex.stackexchange.com/questions/448/how-to-automatically-resize-the-vertical-bar-in-a-set-comprehension
+	%\end{array}\!\!\!
+	\right\}
 	}
 	}
 }
@@ -196,7 +206,7 @@
 		\verb|\mathset[|$\frac{1}{1+\frac{1}{x}}$\verb|]{x \in A}| & 
 		gives $\mathset[\frac{1}{1+\frac{1}{x}}]{x \in A}$ \\
 		\verb|\mathset[|$\frac{1}{1+\frac{1}{1+\frac{1}{x}}}$\verb|]{x \in A}| & 
-		gives $\mathset[\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{x}}}}]{x \in A}$ \\
+		gives $\mathset[\frac{1}{1+\frac{1}{1+\frac{1}{x}}}]{x \in A}$ \\
 		\verb|\mathset[|$\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{x}}}}$\verb|]{x \in A}| & 
 		gives $\mathset[\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{x}}}}]{x \in A}$ \\
 		\verb|\mathset[|$\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{x}}}}}$\verb|]{x \in A}| & 
@@ -206,7 +216,8 @@
 		\verb|\mathset[|$\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{x}}}}}}}$\verb|]{x \in A}| & 
 		gives $\mathset[\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{x}}}}}}}]{x \in A}$ \\
 	\end{tabular} \\
-	For the 5 last commands, this is the best I can do.
+	\sout{For the 5 last commands, this is the best I can do.} \\
+	\textbf{Update ngày 05/05/2022: Đã hoàn chỉnh được lệnh} \verb|\mathset| \textbf{như trong file mẫu.}
 	\section{Insane}
 	\section{Diabolical}
 \end{document}
